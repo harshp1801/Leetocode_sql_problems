@@ -4,6 +4,8 @@ class Solution(object):
         temp = x
         if temp<0:
             return False
+        elif temp%10==0 and temp!=0:
+            return False
         else:
             while temp>0:
                 rem = temp%10

@@ -1,9 +1,6 @@
-class Solution(object):
-    def twoSum(self, nums, target):
-        num_ind = {}
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums)):
-            temp = target-nums[i]
-            if temp in num_ind.keys():
-                return [i,num_ind[temp]]
-            num_ind[nums[i]] = i
-        return None
+            for j in range(i+1,len(nums)):
+                if nums[i]+nums[j]==target:
+                    return [i,j]

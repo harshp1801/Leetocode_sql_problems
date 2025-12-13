@@ -1,15 +1,17 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        l,r = 0,1
-        max_p = 0
-        while r<len(prices):
-            if prices[l]<prices[r]:
-                profit = prices[r]-prices[l]
-                max_p = max(max_p,profit)
+        curr_min = float('inf')
+        curr_max = float('-inf')
+        diff = []
+        for i in prices:
+            if i<curr_min:
+                curr_min = i
+                curr_max = 0
+            elif i>curr_max:
+                curr_max = i
+            if curr_min<curr_max:
+                diff.append(curr_max-curr_min)
             else:
-                l = r # why we want the l as lowest if prices[l]<prices[r] 
-                      # simply mean found new price lower than previous
-            r+=1
-        return max_p
-
-
+                diff.append(0)
+        return max(diff)
+        

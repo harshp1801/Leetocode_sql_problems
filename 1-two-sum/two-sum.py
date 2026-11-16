@@ -1,8 +1,9 @@
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
         dct = {}
         for i in range(len(nums)):
-            rem = target - nums[i]
-            if rem in dct.keys():
-                return [dct[rem], i] 
-            dct[nums[i]] = i        
+            sub = target-nums[i]
+            if nums[i] in dct.keys():
+                return [dct.get(nums[i]),i]
+            dct[sub] = i
+            

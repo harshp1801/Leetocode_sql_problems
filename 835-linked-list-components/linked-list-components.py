@@ -6,6 +6,7 @@
 class Solution:
     def numComponents(self, head: ListNode | None, nums: list[int]) -> int:
         cnt = 0
+        nums = set(nums)
         while head:
             if head.val in nums:
                 if head.next is not None:
